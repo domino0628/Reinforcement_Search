@@ -1,0 +1,22 @@
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        k =len(numbers)-1
+        for i in range(k):
+
+            j,r = i, k
+            # for one circle
+
+            while (j<=r):
+                pivot = (j+r)//2
+                
+                if pivot == i:
+                    return pivot+1,pivot+2
+                
+                else:
+                    if numbers[i] + numbers[pivot] == target:
+                        return i+1, pivot+1
+                    elif numbers[i] + numbers[pivot] < target:
+                        j = pivot + 1
+
+                    else :
+                        r = pivot - 1
